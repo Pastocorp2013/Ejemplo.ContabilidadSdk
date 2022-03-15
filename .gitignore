@@ -1,0 +1,15 @@
+
+*.exe
+*.pdb
+*.dll
+obj/
+obj/*
+*.cache
+bin/debug/*.txt
+bin/debug/
+bin/release/
+bin/
+*.suo
+*.user
+packages/
+.vs/
