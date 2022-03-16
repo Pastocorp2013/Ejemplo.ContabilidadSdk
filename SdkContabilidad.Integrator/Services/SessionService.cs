@@ -29,6 +29,7 @@ namespace SdkContabilidad.Integrator.Services
             internal static readonly SessionService Instance = new SessionService();
         }
 
+        public TSdkSesion Session { get { return _sdkSesion; } }
 
         public bool EmpresaAbierta { get; private set; }
 
