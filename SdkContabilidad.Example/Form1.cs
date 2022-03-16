@@ -1,4 +1,5 @@
-﻿using SdkContabilidad.Integrator.Services;
+﻿using SdkContabilidad.Example.FrontPanels;
+using SdkContabilidad.Integrator.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,6 +51,17 @@ namespace SdkContabilidad.Example
         private void btnCloseCompany_Click(object sender, EventArgs e)
         {
             SessionService.Instance.CierraEmpresa();
+        }
+
+        private void btnConcepts_Click(object sender, EventArgs e)
+        {
+            try{
+                ConceptForm form = new ConceptForm();
+                form.ShowDialog();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

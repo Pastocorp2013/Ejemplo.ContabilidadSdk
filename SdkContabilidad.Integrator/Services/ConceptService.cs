@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace SdkContabilidad.Integrator.Services
 {
-    public class ConceptService : BaseService<TSdkConcepto>
+    public class ConceptService
     {
-        public override void SetSesion()
+        private readonly TSdkConcepto _sdkEntity;
+
+        public ConceptService()
         {
+            _sdkEntity = new TSdkConcepto();
             _sdkEntity.setSesion(SessionService.Instance.Session);
         }
 

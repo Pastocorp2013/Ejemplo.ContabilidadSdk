@@ -5,8 +5,15 @@ using System.Collections.Generic;
 
 namespace SdkContabilidad.Integrator.Services
 {
-    public class AccountService : BaseService<TSdkCuenta>
+    public class AccountService
     {
+        private readonly TSdkCuenta _sdkEntity;
+
+        public AccountService()
+        {
+            _sdkEntity = new TSdkCuenta();
+            _sdkEntity.setSesion(SessionService.Instance.Session);
+        }
         public IEnumerable<CuentaContableDto> BuscarTodasPorCodigo()
         {
             var cuentasList = new List<CuentaContableDto>();
@@ -81,11 +88,6 @@ namespace SdkContabilidad.Integrator.Services
             }
 
             return null;
-        }
-
-        public override void SetSesion()
-        {
-            _sdkEntity.setSesion(SessionService.Instance.Session);
         }
     }
 }

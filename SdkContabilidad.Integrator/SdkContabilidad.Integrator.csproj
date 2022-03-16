@@ -56,7 +56,6 @@
     <Compile Include="Schemas\ConceptoDto.cs" />
     <Compile Include="Schemas\CuentaContableDto.cs" />
     <Compile Include="Services\AccountService.cs" />
-    <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\ConceptService.cs" />
     <Compile Include="Services\SessionService.cs" />
   </ItemGroup>
