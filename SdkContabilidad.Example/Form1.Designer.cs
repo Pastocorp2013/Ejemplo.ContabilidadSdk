@@ -36,14 +36,14 @@ namespace SdkContabilidad.Example
             this.txtUser = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAccounts = new System.Windows.Forms.Button();
             this.btnConcepts = new System.Windows.Forms.Button();
+            this.btnAccounts = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -122,15 +122,6 @@ namespace SdkContabilidad.Example
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credenciales Contabilidad";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Usuario";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -146,6 +137,15 @@ namespace SdkContabilidad.Example
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(430, 22);
             this.txtPassword.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Usuario";
             // 
             // groupBox2
             // 
@@ -176,15 +176,6 @@ namespace SdkContabilidad.Example
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Formularios Esquemas";
             // 
-            // btnAccounts
-            // 
-            this.btnAccounts.Location = new System.Drawing.Point(6, 35);
-            this.btnAccounts.Name = "btnAccounts";
-            this.btnAccounts.Size = new System.Drawing.Size(112, 55);
-            this.btnAccounts.TabIndex = 4;
-            this.btnAccounts.Text = "Cuentas";
-            this.btnAccounts.UseVisualStyleBackColor = true;
-            // 
             // btnConcepts
             // 
             this.btnConcepts.Location = new System.Drawing.Point(124, 35);
@@ -194,6 +185,16 @@ namespace SdkContabilidad.Example
             this.btnConcepts.Text = "Conceptos";
             this.btnConcepts.UseVisualStyleBackColor = true;
             this.btnConcepts.Click += new System.EventHandler(this.btnConcepts_Click);
+            // 
+            // btnAccounts
+            // 
+            this.btnAccounts.Location = new System.Drawing.Point(6, 35);
+            this.btnAccounts.Name = "btnAccounts";
+            this.btnAccounts.Size = new System.Drawing.Size(112, 55);
+            this.btnAccounts.TabIndex = 4;
+            this.btnAccounts.Text = "Cuentas";
+            this.btnAccounts.UseVisualStyleBackColor = true;
+            this.btnAccounts.Click += new System.EventHandler(this.btnAccounts_Click);
             // 
             // Form1
             // 
