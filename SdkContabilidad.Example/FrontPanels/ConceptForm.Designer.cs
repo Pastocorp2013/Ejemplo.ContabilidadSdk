@@ -30,18 +30,18 @@ namespace SdkContabilidad.Example.FrontPanels
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnGetAll = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.btnGetByNumber = new System.Windows.Forms.Button();
             this.btnGetById = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.dgResult = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -62,6 +62,22 @@ namespace SdkContabilidad.Example.FrontPanels
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Credenciales Contabilidad";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Id";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(6, 153);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(430, 22);
+            this.txtId.TabIndex = 8;
             // 
             // label2
             // 
@@ -107,6 +123,16 @@ namespace SdkContabilidad.Example.FrontPanels
             this.panel1.Size = new System.Drawing.Size(635, 63);
             this.panel1.TabIndex = 7;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(482, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(112, 54);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "&Borrar";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnGetAll
             // 
             this.btnGetAll.Location = new System.Drawing.Point(0, 3);
@@ -116,6 +142,16 @@ namespace SdkContabilidad.Example.FrontPanels
             this.btnGetAll.Text = "&Buscar Todos";
             this.btnGetAll.UseVisualStyleBackColor = true;
             this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(364, 2);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(112, 54);
+            this.btnCreate.TabIndex = 2;
+            this.btnCreate.Text = "&Crear";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnGetByNumber
             // 
@@ -135,40 +171,7 @@ namespace SdkContabilidad.Example.FrontPanels
             this.btnGetById.TabIndex = 1;
             this.btnGetById.Text = "Buscar por &Id";
             this.btnGetById.UseVisualStyleBackColor = true;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(364, 2);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(112, 54);
-            this.btnCreate.TabIndex = 2;
-            this.btnCreate.Text = "&Crear";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(482, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 54);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "&Borrar";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Id";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(6, 153);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(430, 22);
-            this.txtId.TabIndex = 8;
+            this.btnGetById.Click += new System.EventHandler(this.btnGetById_Click);
             // 
             // dgResult
             // 

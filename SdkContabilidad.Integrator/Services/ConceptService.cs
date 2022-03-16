@@ -90,6 +90,21 @@ namespace SdkContabilidad.Integrator.Services
             return 0;
         }
 
+        public bool Borrar(int id)
+        {
+            _sdkEntity.setId = id;
+
+            var sdkResult = 0;
+
+            _sdkEntity.borra(ref sdkResult);
+
+            if (sdkResult == SdkResult.Success)
+            {
+                return true;
+            }
+
+            return false;
+        }
 
     }
 }

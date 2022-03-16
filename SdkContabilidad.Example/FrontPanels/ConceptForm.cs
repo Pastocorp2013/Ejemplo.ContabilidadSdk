@@ -1,13 +1,6 @@
 ﻿using SdkContabilidad.Integrator.Schemas;
 using SdkContabilidad.Integrator.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SdkContabilidad.Example.FrontPanels
@@ -19,7 +12,7 @@ namespace SdkContabilidad.Example.FrontPanels
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            //_service = new ConceptService();
+            _service = new ConceptService();
         }
 
         private void btnGetAll_Click(object sender, EventArgs e)
@@ -53,6 +46,77 @@ namespace SdkContabilidad.Example.FrontPanels
                 MessageBox.Show("El número ingresadao es incorrecto.");
             }
             
+        }
+
+        private void btnGetById_Click(object sender, EventArgs e)
+        {
+            txtNumber.Text = "";
+            txtName.Text = "";
+            int number;
+            if (int.TryParse(txtId.Text, out number))
+            {
+                var result = _service.BuscarPorId(number);
+                if (result != null)
+                {
+                    txtNumber.Text = result.Id.ToString();
+                    txtName.Name = result.Nombre;
+                }
+                else
+                {
+                    MessageBox.Show($"No se encontró el Concepto {number}.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El número ingresadao es incorrecto.");
+            }
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            ConceptoDto conceptoDto = new ConceptoDto
+            {
+                Nombre = txtName.Text
+            };
+
+            int number;
+            if (!int.TryParse(txtNumber.Text, out number))
+            {
+                MessageBox.Show("El número ingresadao es incorrecto.");
+            }
+
+            conceptoDto.Numero = number;
+
+            var result = _service.Crear(conceptoDto);
+            
+            if (result == 0)
+            {
+                MessageBox.Show($"No se pudo crear el Concepto {txtName}.");
+            }
+            else
+            {
+                MessageBox.Show($"Concepto creado correctamente.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {            
+            int number;
+            if (!int.TryParse(txtId.Text, out number))
+            {
+                MessageBox.Show("El número ingresadao es incorrecto.");
+            }
+
+            var result = _service.Borrar(number);
+
+            if (result)
+            {
+                MessageBox.Show($"Concepto {number} borrado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show($"Concepto borrado correctamente.");
+            }
         }
     }
 }
