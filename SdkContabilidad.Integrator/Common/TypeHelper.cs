@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SdkContabilidad.Integrator.Common
+﻿namespace SdkContabilidad.Integrator.Common
 {
-    class TypeHelper
+    public static class TypeHelper
     {
+        public static int ToInt(this string value)
+        {
+            int n;
+
+            int.TryParse(value, out n);
+
+            return n;
+        }
     }
 }
