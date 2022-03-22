@@ -44,6 +44,7 @@ namespace SdkContabilidad.Example
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnConcepts = new System.Windows.Forms.Button();
             this.btnAccounts = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,6 +168,7 @@ namespace SdkContabilidad.Example
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnClients);
             this.groupBox3.Controls.Add(this.btnConcepts);
             this.groupBox3.Controls.Add(this.btnAccounts);
             this.groupBox3.Location = new System.Drawing.Point(15, 351);
@@ -195,6 +197,16 @@ namespace SdkContabilidad.Example
             this.btnAccounts.Text = "Cuentas";
             this.btnAccounts.UseVisualStyleBackColor = true;
             this.btnAccounts.Click += new System.EventHandler(this.btnAccounts_Click);
+            // 
+            // btnClients
+            // 
+            this.btnClients.Location = new System.Drawing.Point(242, 35);
+            this.btnClients.Name = "btnClients";
+            this.btnClients.Size = new System.Drawing.Size(112, 55);
+            this.btnClients.TabIndex = 6;
+            this.btnClients.Text = "Clientes";
+            this.btnClients.UseVisualStyleBackColor = true;
+            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
             // 
             // Form1
             // 
@@ -234,6 +246,7 @@ namespace SdkContabilidad.Example
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnConcepts;
         private System.Windows.Forms.Button btnAccounts;
+        private System.Windows.Forms.Button btnClients;
     }
 }
 

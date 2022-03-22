@@ -58,6 +58,12 @@
     <Compile Include="FrontPanels\AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontPanels\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontPanels\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrontPanels\ConceptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrontPanels\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontPanels\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontPanels\ConceptForm.resx">
       <DependentUpon>ConceptForm.cs</DependentUpon>

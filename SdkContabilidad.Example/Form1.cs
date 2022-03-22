@@ -76,5 +76,18 @@ namespace SdkContabilidad.Example
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClientForm form = new ClientForm();
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
