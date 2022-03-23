@@ -57,6 +57,9 @@
     <Compile Include="Schemas\ClienteDto.cs" />
     <Compile Include="Schemas\ConceptoDto.cs" />
     <Compile Include="Schemas\CuentaContableDto.cs" />
+    <Compile Include="Schemas\MovimientoPolizaDto.cs" />
+    <Compile Include="Schemas\PolizaDto.cs" />
+    <Compile Include="Services\PolizaService.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ConceptService.cs" />

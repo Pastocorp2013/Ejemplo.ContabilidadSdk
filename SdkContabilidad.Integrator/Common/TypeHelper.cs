@@ -10,5 +10,14 @@
 
             return n;
         }
+
+        public static decimal ToDecimal(this string value)
+        {
+            decimal n;
+
+            decimal.TryParse(value, out n);
+
+            return n;
+        }
     }
 }

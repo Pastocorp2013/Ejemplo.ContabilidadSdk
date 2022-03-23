@@ -42,9 +42,10 @@ namespace SdkContabilidad.Example
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnClients = new System.Windows.Forms.Button();
             this.btnConcepts = new System.Windows.Forms.Button();
             this.btnAccounts = new System.Windows.Forms.Button();
-            this.btnClients = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -168,6 +169,7 @@ namespace SdkContabilidad.Example
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btnClients);
             this.groupBox3.Controls.Add(this.btnConcepts);
             this.groupBox3.Controls.Add(this.btnAccounts);
@@ -177,6 +179,16 @@ namespace SdkContabilidad.Example
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Formularios Esquemas";
+            // 
+            // btnClients
+            // 
+            this.btnClients.Location = new System.Drawing.Point(242, 35);
+            this.btnClients.Name = "btnClients";
+            this.btnClients.Size = new System.Drawing.Size(112, 55);
+            this.btnClients.TabIndex = 6;
+            this.btnClients.Text = "Clientes";
+            this.btnClients.UseVisualStyleBackColor = true;
+            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
             // 
             // btnConcepts
             // 
@@ -198,15 +210,15 @@ namespace SdkContabilidad.Example
             this.btnAccounts.UseVisualStyleBackColor = true;
             this.btnAccounts.Click += new System.EventHandler(this.btnAccounts_Click);
             // 
-            // btnClients
+            // button1
             // 
-            this.btnClients.Location = new System.Drawing.Point(242, 35);
-            this.btnClients.Name = "btnClients";
-            this.btnClients.Size = new System.Drawing.Size(112, 55);
-            this.btnClients.TabIndex = 6;
-            this.btnClients.Text = "Clientes";
-            this.btnClients.UseVisualStyleBackColor = true;
-            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
+            this.button1.Location = new System.Drawing.Point(360, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 55);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Pólizas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -247,6 +259,7 @@ namespace SdkContabilidad.Example
         private System.Windows.Forms.Button btnConcepts;
         private System.Windows.Forms.Button btnAccounts;
         private System.Windows.Forms.Button btnClients;
+        private System.Windows.Forms.Button button1;
     }
 }
 
