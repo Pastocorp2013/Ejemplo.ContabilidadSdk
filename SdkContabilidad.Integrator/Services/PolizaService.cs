@@ -22,7 +22,7 @@ namespace SdkContabilidad.Integrator.Services
             sdkResult = _sdkEntity.consultaPolizasPorSistOrigenRango_buscaPrimero();
             if (sdkResult == SdkResult.Success)
             {
-                var cuenta = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -31,7 +31,7 @@ namespace SdkContabilidad.Integrator.Services
                 sdkResult = _sdkEntity.consultaPolizasPorSistOrigenRango_buscaSiguiente();
                 if (sdkResult == SdkResult.Success)
                 {
-                    var cuenta = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -48,7 +48,7 @@ namespace SdkContabilidad.Integrator.Services
             if (sdkResult == SdkResult.Success)
             {
                 _sdkEntity.iniciarInfo();
-                var cuenta = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -58,7 +58,7 @@ namespace SdkContabilidad.Integrator.Services
                 if (sdkResult == SdkResult.Success)
                 {
                     _sdkEntity.iniciarInfo();
-                    var cuenta = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -73,7 +73,7 @@ namespace SdkContabilidad.Integrator.Services
             if (sdkResult == SdkResult.Success)
             {
                 _sdkEntity.iniciarInfo();
-                var item = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -87,7 +87,7 @@ namespace SdkContabilidad.Integrator.Services
             if (sdkResult == SdkResult.Success)
             {
                 _sdkEntity.iniciarInfo();
-                var item = MapperUtil.Cast<TSdkPoliza, PolizaDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -101,7 +101,7 @@ namespace SdkContabilidad.Integrator.Services
             sdkResult = _sdkEntity.buscaMovimientoPorNumMovto(movimientoPoliza, numMovimiento);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkMovimientoPoliza, MovimientoPolizaDto>(movimientoPoliza);
+                var item = GetMovimientoDto(movimientoPoliza);
                 return item;
             }
 
@@ -181,9 +181,53 @@ namespace SdkContabilidad.Integrator.Services
                 }
             }
 
-            return false;
+            return false;            
+        }
 
-            
+        private PolizaDto GetDto(TSdkPoliza item)
+        {
+            if (item == null)
+                return null;
+
+            PolizaDto entityToReturn = new PolizaDto
+            {
+                Fecha = item.Fecha,
+                Tipo = (int)item.Tipo,
+                Numero = item.Numero,
+                Clase = (int)item.Clase,
+                Impresa = item.Impresa,
+                Concepto = item.Concepto,
+                Diario = item.Diario,
+                SistOrigen = (int)item.SistOrigen,
+                Ajuste = item.Ajuste,
+                CodigoDiario = item.CodigoDiario,
+                Guid = item.Guid
+            };
+
+            return entityToReturn;
+        }
+
+        private MovimientoPolizaDto GetMovimientoDto(TSdkMovimientoPoliza item)
+        {
+            if (item == null)
+                return null;
+
+            MovimientoPolizaDto movimientoPoliza = new MovimientoPolizaDto
+            {
+                CodigoCuenta = item.CodigoCuenta,
+                CodigoDiario = item.CodigoDiario,
+                Concepto = item.Concepto,
+                Diario = item.Diario,
+                Guid = item.Guid,
+                Importe = item.Importe,
+                ImporteME = item.ImporteME,
+                NumMovto = item.NumMovto,
+                Referencia = item.Referencia,
+                SegmentoNegocio = item.SegmentoNegocio,
+                TipoMovto = (int)item.TipoMovto
+            };
+
+            return movimientoPoliza;
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using SdkContabilidad.Example.FrontPanels;
+using SdkContabilidad.Integrator.Common;
+using SdkContabilidad.Integrator.Schemas;
 using SdkContabilidad.Integrator.Services;
+using SDKCONTPAQNGLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

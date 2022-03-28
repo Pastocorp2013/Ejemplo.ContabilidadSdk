@@ -27,7 +27,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.consultaPorNumero_buscaPrimero(ref sdkResult);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkConcepto, ConceptoDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 lista.Add(item);
             }
 
@@ -36,7 +36,7 @@ namespace SdkContabilidad.Integrator.Services
                 _sdkEntity.consultaPorNumero_buscaSiguiente(ref sdkResult);
                 if (sdkResult == SdkResult.Success)
                 {
-                    var item = MapperUtil.Cast<TSdkConcepto, ConceptoDto>(_sdkEntity);
+                    var item = GetDto(_sdkEntity);
                     lista.Add(item);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -50,7 +50,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.buscaPorNumero(nConcepto, ref sdkResult);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkConcepto, ConceptoDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -63,7 +63,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.buscaPorId(id, ref sdkResult);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkConcepto, ConceptoDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -104,6 +104,20 @@ namespace SdkContabilidad.Integrator.Services
             }
 
             return false;
+        }
+
+        private ConceptoDto GetDto(TSdkConcepto item)
+        {
+            if (item == null)
+                return null;
+
+            ConceptoDto entityToReturn = new ConceptoDto
+            {
+                Numero = item.Numero,
+                Nombre = item.Nombre,
+            };
+
+            return entityToReturn;
         }
 
     }

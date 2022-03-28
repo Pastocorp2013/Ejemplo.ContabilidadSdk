@@ -22,7 +22,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.consultaPorCodigo_buscaPrimero(ref sdkResult);
             if (sdkResult == SdkResult.Success)
             {
-                var cuenta = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -31,7 +31,7 @@ namespace SdkContabilidad.Integrator.Services
                 _sdkEntity.consultaPorCodigo_buscaSiguiente(ref sdkResult);
                 if (sdkResult == SdkResult.Success)
                 {
-                    var cuenta = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -47,7 +47,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.consultaPorNombre_buscaPrimero(ref sdkResult);
             if (sdkResult == SdkResult.Success)
             {
-                var cuenta = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -56,7 +56,7 @@ namespace SdkContabilidad.Integrator.Services
                 _sdkEntity.consultaPorNombre_buscaSiguiente(ref sdkResult);
                 if (sdkResult == SdkResult.Success)
                 {
-                    var cuenta = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -70,7 +70,7 @@ namespace SdkContabilidad.Integrator.Services
             sdkResult = _sdkEntity.buscaPorCodigo(code);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -83,7 +83,7 @@ namespace SdkContabilidad.Integrator.Services
             _sdkEntity.buscaPorId(id);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkCuenta, CuentaContableDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -139,6 +139,34 @@ namespace SdkContabilidad.Integrator.Services
             }
 
             return false;
+        }
+
+        private CuentaContableDto GetDto(TSdkCuenta entity)
+        {
+            if (entity == null)
+                return null;
+
+            CuentaContableDto cuentaContableDto = new CuentaContableDto
+            {
+                Nombre = entity.Nombre,
+                Codigo = entity.Codigo,
+                NomIdioma = entity.NomIdioma,
+                Tipo = (int)entity.Tipo,
+                EsBaja = entity.EsBaja,
+                CtaMayor = (int)entity.CtaMayor,
+                FechaAlta = entity.FechaAlta,
+                SistOrigen = (int)entity.SistOrigen,
+                Moneda = entity.Moneda,
+                DigitoAgrupador = entity.DigitoAgrupador,
+                AplicaSegNeg = entity.AplicaSegNeg,
+                CodigoCuentaAcumula = entity.CodigoCuentaAcumula,
+                DigitoFiscal1 = entity.DigitoFiscal1,
+                DigitoFiscal2 = entity.DigitoFiscal2,
+                AgrupadorSAT = entity.AgrupadorSAT,
+                Consume = entity.Consume
+            };
+
+            return cuentaContableDto;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace SdkContabilidad.Integrator.Services
             sdkResult = _sdkEntity.consultaPorNombre_buscaPrimero();
             if (sdkResult == SdkResult.Success)
             {
-                var cuenta = MapperUtil.Cast<TSdkCliente, ClienteDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -31,7 +31,7 @@ namespace SdkContabilidad.Integrator.Services
                 sdkResult = _sdkEntity.consultaPorNombre_buscaSiguiente();
                 if (sdkResult == SdkResult.Success)
                 {
-                    var cuenta = MapperUtil.Cast<TSdkCliente, ClienteDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -48,7 +48,7 @@ namespace SdkContabilidad.Integrator.Services
             if (sdkResult == SdkResult.Success)
             {
                 _sdkEntity.iniciarInfo();
-                var cuenta = MapperUtil.Cast<TSdkCliente, ClienteDto>(_sdkEntity);
+                var cuenta = GetDto(_sdkEntity);
                 cuentasList.Add(cuenta);
             }
 
@@ -58,7 +58,7 @@ namespace SdkContabilidad.Integrator.Services
                 if (sdkResult == SdkResult.Success)
                 {
                     _sdkEntity.iniciarInfo();
-                    var cuenta = MapperUtil.Cast<TSdkCliente, ClienteDto>(_sdkEntity);
+                    var cuenta = GetDto(_sdkEntity);
                     cuentasList.Add(cuenta);
                 }
             } while (sdkResult == SdkResult.Success);
@@ -73,20 +73,20 @@ namespace SdkContabilidad.Integrator.Services
             if (sdkResult == SdkResult.Success)
             {
                 _sdkEntity.iniciarInfo();
-                var item = MapperUtil.Cast<TSdkCliente, ClienteDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
             return null;
         }
 
-        public CuentaContableDto BuscarPorCodigoAdminPaq(string code)
+        public ClienteDto BuscarPorCodigoAdminPaq(string code)
         {
             var sdkResult = 0;
             _sdkEntity.buscaPorCodigoAdminPAQ(code);
             if (sdkResult == SdkResult.Success)
             {
-                var item = MapperUtil.Cast<TSdkCliente, CuentaContableDto>(_sdkEntity);
+                var item = GetDto(_sdkEntity);
                 return item;
             }
 
@@ -158,6 +158,47 @@ namespace SdkContabilidad.Integrator.Services
             return false;
 
             
+        }
+
+        private ClienteDto GetDto(TSdkCliente item)
+        {
+            if (item == null)
+                return null;
+
+            ClienteDto entityToReturn = new ClienteDto
+            {
+                CodigoPersona = item.CodigoPersona,
+                Nombre = item.Nombre,
+                RFC = item.RFC,
+                CURP = item.CURP,
+                Telefono1 = item.Telefono1,
+                Telefono2 = item.Telefono2,
+                Telefono3 = item.Telefono3,
+                Fax = item.Fax,
+                eMail = item.eMail,
+                PaginaWeb = item.PaginaWeb,
+                IdDatoExtra = item.IdDatoExtra,
+                PosibilidadPago = item.PosibilidadPago,
+                SistOrig = item.SistOrig,
+                FechaRegistro = item.FechaRegistro,
+                EsCliente = item.EsCliente,
+                EsProveedor = item.EsProveedor,
+                EsEmpleado = item.EsEmpleado,
+                EsAgente = item.EsAgente,
+                EsPersona = item.EsPersona,
+                EsBaja = item.EsBaja,
+                GenerarPolizaAuto = item.GenerarPolizaAuto,
+                CodigoCuenta = item.CodigoCuenta,
+                CodigoCtaComplementaria = item.CodigoCtaComplementaria,
+                CodigoPrepoliza = item.CodigoPrepoliza,
+                IdSegNeg = item.IdSegNeg,
+                Codigo = item.Codigo,
+                CodigoClienteAdminPAQ = item.CodigoClienteAdminPAQ,
+                CuentaOrigen = item.CuentaOrigen,
+                BancoOrigen = item.BancoOrigen,
+            };
+
+            return entityToReturn;
         }
     }
 }
